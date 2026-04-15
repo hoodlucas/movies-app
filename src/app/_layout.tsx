@@ -9,6 +9,9 @@ export default function Layout() {
         <Stack.Screen name="index" options={{ title: 'Home' }} />
         <Stack.Screen name="movies/index" options={{ title: 'Movies' }} />
         <Stack.Screen name="movies/[id]" options={{ title: 'Movie Details' }} />
+
+        <Stack.Screen name="categories/index" options={{ title: 'Categories' }} />
+        <Stack.Screen name="categories/[id]" options={{ title: 'Genre' }} />
       </Stack>
     </SafeAreaProvider>
   );

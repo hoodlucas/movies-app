@@ -1,23 +1,37 @@
 import React from "react";
 import { useRouter } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-function CardMovie() {
-    const router = useRouter()
+
+function CardMovie({ item }: { item: any }) {
+    const router = useRouter();
 
     return (
         <View style={styles.card}>
+            <Image 
+                source={{ uri: item.poster }} 
+                style={styles.image} 
+                resizeMode="cover"
+            />
+
             <View style={styles.info}>
-                <Text style={styles.title}>The Silent Code</Text>
-                <Text style={styles.year}>2025</Text>
-                <Text style={styles.genre}>Drama, Thriller</Text>
+                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.year}>{item.year}</Text>
+                <Text style={styles.genre}>{item.genre}</Text>
             </View>
 
-            <Ionicons name="chevron-forward" size={20} color="#999" onPress={()=>router.push("/movies/1")}/>
+            <Ionicons 
+                name="chevron-forward" 
+                size={20} 
+                color="#999" 
+                onPress={() => router.push(`/movies/${item.id}`)}
+            />
         </View>
-    )
+    );
 }
+
+
 
 const styles = StyleSheet.create({
     card: {
@@ -28,11 +42,6 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         marginBottom: 10,
 
-        // sombra (iOS)
-        shadowColor: "#000",
-        shadowOpacity: 0.05,
-        shadowRadius: 4,
-        shadowOffset: { width: 0, height: 2 },
 
         // sombra (Android)
         elevation: 2,

@@ -9,8 +9,8 @@ export default function Home() {
 
   return (
     <Screen>
-      <Button title='Movies' onPress={()=>router.push("/movies/index")}/>
-      <Button title='Categories'/>
+      <Button title='Movies' onPress={()=>router.push("/movies")}/>
+      <Button title='Categories' onPress={()=>router.push("/categories")}/>
     </Screen>
   );
 }
